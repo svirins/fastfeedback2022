@@ -1,11 +1,11 @@
-import { ProvideAuth } from '../lib/auth';
+import { AuthProvider } from '../lib/auth';
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
-    <ProvideAuth>
+    <AuthProvider>
       <Component {...pageProps} />
-    </ProvideAuth>
+    </AuthProvider>
   );
-}
+};
 
 export default MyApp;

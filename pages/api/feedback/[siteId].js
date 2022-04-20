@@ -1,4 +1,4 @@
-import db from '@/lib/firebase-admin';
+import { db } from '@/lib/firebase-admin';
 import { getAllFeedback } from '@/lib/db-admin';
 
 // eslint-disable-next-line import/no-anonymous-default-export

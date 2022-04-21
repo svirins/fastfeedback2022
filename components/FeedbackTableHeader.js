@@ -7,9 +7,7 @@ import {
   Flex
 } from '@chakra-ui/core';
 
-import AddSiteModal from './AddSiteModal';
-
-const SiteTableHeader = () => (
+const FeedbackTableHeader = () => (
   <>
     <Breadcrumb>
       <BreadcrumbItem>
@@ -17,10 +15,9 @@ const SiteTableHeader = () => (
       </BreadcrumbItem>
     </Breadcrumb>
     <Flex justifyContent="space-between">
-      <Heading mb={8}>My Sites</Heading>
-      <AddSiteModal>+ Add Site</AddSiteModal>
+      <Heading mb={8}>My Feedback</Heading>
     </Flex>
   </>
 );
 
-export default SiteTableHeader;
+export default FeedbackTableHeader;

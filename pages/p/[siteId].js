@@ -15,7 +15,7 @@ export async function getStaticProps(context) {
     props: {
       initialFeedback: feedback
     },
-    revalidate: 1
+    revalidate: 60
   };
 }
 

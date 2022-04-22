@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { Button, Flex, Text, Icon, Link } from '@chakra-ui/core';
+import { Button, Flex, Text, Icon, Link } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
+import { LogoIcon } from '@/styles/icons';
 
 const Home = () => {
   const auth = useAuth();
@@ -28,7 +29,7 @@ const Home = () => {
         />
         <title>Fast Feedback</title>
       </Head>
-      <Icon color="black" name="logo" size="42px" mb={2} />
+      <LogoIcon boxSize="42px" mb={2} />
       <Text mb={4}>
         <Text as="span" fontWeight="bold" display="inline">
           Fast Feedback

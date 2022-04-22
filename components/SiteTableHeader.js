@@ -5,7 +5,7 @@ import {
   BreadcrumbLink,
   Heading,
   Flex
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import AddSiteModal from './AddSiteModal';
 

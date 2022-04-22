@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Code, Switch, IconButton } from '@chakra-ui/core';
+import { Box, Code, Switch, IconButton } from '@chakra-ui/react';
 
 import { Table, Tr, Th, Td } from './Table';
 import DeleteFeedbackButton from './DeleteFeedbackButton';
@@ -25,7 +25,7 @@ const FeedbackTable = ({ allFeedback }) => {
             </Td>
             <Td>
               <Switch
-                color="green"
+                colorScheme="green"
                 defaultIsChecked={feedback.status === 'active'}
               />
             </Td>

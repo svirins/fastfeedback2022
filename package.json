@@ -7,13 +7,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "date-fns": "^2.28.0",
-    "emotion-theming": "^10.0.27",
     "firebase": "^7.14.6",
     "firebase-admin": "^8.12.1",
+    "framer-motion": "^6",
     "js-cookie": "^3.0.1",
     "next": "12.1.0",
     "react": "17.0.2",

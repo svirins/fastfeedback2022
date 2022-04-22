@@ -9,7 +9,9 @@ import {
   AlertDialogOverlay,
   IconButton,
   Button
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
+
+import { DeleteIcon } from '@chakra-ui/icons';
 
 import { deleteFeedback } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
@@ -40,7 +42,7 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
     <>
       <IconButton
         aria-label="Delete feedback"
-        icon="delete"
+        icon={<DeleteIcon />}
         variant="ghost"
         onClick={() => setIsOpen(true)}
       />

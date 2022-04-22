@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, FormControl, FormLabel, Input, Button } from '@chakra-ui/core';
+import { Box, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 
 import Feedback from '@/components/Feedback';
 import { useAuth } from '@/lib/auth';

@@ -1,5 +1,5 @@
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
-import { Global, css } from '@emotion/core';
+import { ThemeProvider, CSSReset } from '@chakra-ui/react';
+import { Global, css } from '@emotion/react';
 
 import { AuthProvider } from '@/lib/auth';
 import customTheme from '@/styles/theme';

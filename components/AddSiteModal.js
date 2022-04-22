@@ -18,7 +18,7 @@ import {
   Input,
   useDisclosure,
   useToast
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 const AddSiteModal = ({ children }) => {
   const initialRef = useRef();

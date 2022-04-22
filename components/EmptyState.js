@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Flex, Text, Button } from '@chakra-ui/core';
+import { Heading, Flex, Text } from '@chakra-ui/react';
 
 import AddSiteModal from './AddSiteModal';
 

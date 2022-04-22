@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Button, Flex, Link, Avatar, Icon } from '@chakra-ui/core';
+import { Box, Button, Flex, Link, Avatar, Icon } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
-import AddSiteModal from './AddSiteModal';
-import SiteTableHeader from './SiteTableHeader';
+import { LogoIcon } from '@/styles/icons';
+
 const DashboardShell = ({ children }) => {
   const { user, signout } = useAuth();
 
@@ -21,7 +21,7 @@ const DashboardShell = ({ children }) => {
           px={8}
         >
           <Flex>
-            <Icon name="logo" size="24px" mr={8} />
+            <LogoIcon boxSize="24px" mr={8} />
             <Link mr={4}>Sites</Link>
             <Link>Feedback</Link>
           </Flex>

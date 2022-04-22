@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Button, Flex, Link, Avatar, Icon } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 import { useAuth } from '@/lib/auth';
 import { LogoIcon } from '@/styles/icons';
@@ -21,9 +22,15 @@ const DashboardShell = ({ children }) => {
           px={8}
         >
           <Flex>
-            <LogoIcon boxSize="24px" mr={8} />
-            <Link mr={4}>Sites</Link>
-            <Link>Feedback</Link>
+            <NextLink href="/" passHref>
+              <LogoIcon boxSize="24px" mr={8} />
+            </NextLink>
+            <NextLink href="/dashboard" passHref>
+              <Link mr={4}>Sites</Link>
+            </NextLink>
+            <NextLink href="/feedback" passHref>
+              <Link>Feedback</Link>
+            </NextLink>
           </Flex>
           <Flex justifyContent="center" alignItems="center">
             {user && (

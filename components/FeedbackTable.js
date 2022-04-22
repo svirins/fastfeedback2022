@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Code, Switch, IconButton } from '@chakra-ui/core';
 
 import { Table, Tr, Th, Td } from './Table';
-
+import DeleteFeedbackButton from './DeleteFeedbackButton';
 const FeedbackTable = ({ allFeedback }) => {
   return (
     <Table>
@@ -29,7 +29,9 @@ const FeedbackTable = ({ allFeedback }) => {
                 defaultIsChecked={feedback.status === 'active'}
               />
             </Td>
-            <Td>{'moo'}</Td>
+            <Td>
+              <DeleteFeedbackButton feedbackId={feedback.id} />
+            </Td>
           </Box>
         ))}
       </tbody>

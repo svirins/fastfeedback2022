@@ -11,7 +11,7 @@ const FeedbackTableHeader = () => (
   <>
     <Breadcrumb>
       <BreadcrumbItem>
-        <BreadcrumbLink>Sites</BreadcrumbLink>
+        <BreadcrumbLink>Feedback</BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
     <Flex justifyContent="space-between">

@@ -2,8 +2,8 @@ import pino from 'pino';
 import { logflarePinoVercel } from 'pino-logflare';
 
 const { stream, send } = logflarePinoVercel({
-  apiKey: 'k-TOsw8R0VUH',
-  sourceToken: 'b3810f01-ca02-4080-98ad-2fa78939a440'
+  apiKey: process.env.NEXT_PUBLIC_LOGFLARE_KEY,
+  sourceToken: process.env.NEXT_PUBLIC_LOGFLARE_TOKEN
 });
 
 const logger = pino(

@@ -20,7 +20,7 @@ export default async (req, res) => {
           statusCode: res.statusCode
         }
       },
-      'Error in api/sites'
+      error.message
     );
     res.status(500).json({ error });
   }

@@ -2,7 +2,7 @@ import { useRef, createContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
-import useSWR, { mutate } from 'swr';
+import { mutate } from 'swr';
 
 import {
   Modal,
@@ -33,7 +33,7 @@ const AddSiteModal = ({ children }) => {
       name,
       url
     };
-    createSite(newSite);
+    const { id } = createSite(newSite);
     toast({
       title: 'Success!',
       description: "We've added your site",
@@ -43,9 +43,9 @@ const AddSiteModal = ({ children }) => {
     });
     mutate(
       ['/api/sites', user.token],
-      async (data) => {
-        return { sites: [...data.sites, newSite] };
-      },
+      async (data) => ({
+        sites: [...data.sites, { id, ...newSite }]
+      }),
       false
     );
     onClose();

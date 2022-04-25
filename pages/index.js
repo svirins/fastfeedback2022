@@ -40,7 +40,7 @@ const Home = ({ allFeedback }) => {
             />
             <title>Fast Feedback</title>
           </Head>
-          <LogoIcon boxSize="48" mb={2} />
+          <LogoIcon boxSize="24" mb={2} />
           <Text mb={4} fontSize="lg" py={6}>
             <Text as="span" fontWeight="bold" display="inline">
               Fast Feedback

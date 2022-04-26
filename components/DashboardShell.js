@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Flex, Link, Avatar, Icon } from '@chakra-ui/react';
+import { Box, Button, Flex, Link, Avatar } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 import { useAuth } from '@/lib/auth';

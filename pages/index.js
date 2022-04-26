@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, Button, Flex, Text, Icon, Link, HStack } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, Link, HStack } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
 import { getAllFeedback } from '@/lib/db-admin';
@@ -85,7 +85,7 @@ const Home = ({ allFeedback }) => {
                   bg: 'gray.800',
                   transform: 'scale(0.95)'
                 }}
-                onClick={(e) => auth.signinWithGitHub()}
+                onClick={() => auth.signinWithGitHub()}
                 leftIcon={<GitHubIcon />}
               >
                 Sign In with GitHub
@@ -100,7 +100,7 @@ const Home = ({ allFeedback }) => {
                   bg: 'gray.100',
                   transform: 'scale(0.95)'
                 }}
-                onClick={(e) => auth.signinWithGoogle()}
+                onClick={() => auth.signinWithGoogle()}
                 leftIcon={<GoogleIcon />}
               >
                 Sign In with Google

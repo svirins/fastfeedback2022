@@ -1,9 +1,10 @@
 import useSWR from 'swr';
 
 import DashboardShell from '@/components/DashboardShell';
-import EmptyState from '@/components/EmptyState';
+import SiteEmptyState from '@/components/SiteEmptyState';
 import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import SiteTableHeader from '@/components/SiteTableHeader';
+import Page from '@/components/Page';
 
 import SiteTable from '@/components/SiteTable';
 import fetcher from '@/utils/fetcher';
@@ -24,9 +25,15 @@ const Dashboard = () => {
   return (
     <DashboardShell>
       <SiteTableHeader />
-      {data.sites ? <SiteTable sites={data.sites} /> : <EmptyState />}
+      {data.sites ? <SiteTable sites={data.sites} /> : <SiteEmptyState />}
     </DashboardShell>
   );
 };
 
-export default Dashboard;
+const DashboardPage = () => (
+  <Page name="Dashboard" path="/dashboard">
+    <Dashboard />
+  </Page>
+);
+
+export default DashboardPage;

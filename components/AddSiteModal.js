@@ -1,4 +1,4 @@
-import { useRef, createContext } from 'react';
+import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';

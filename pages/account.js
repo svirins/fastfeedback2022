@@ -95,7 +95,7 @@ const Account = () => {
           <Heading letterSpacing="-1px">{user?.name}</Heading>
           <Text>{user?.email}</Text>
         </Flex>
-        <SettingsTable stripeRole="basic">
+        <SettingsTable stripeRole={user?.stripeRole}>
           <FeedbackUsage />
           <Text my={4}>
             Fast Feedback uses Stripe to update, change, or cancel your
@@ -123,6 +123,24 @@ const Account = () => {
               }}
             >
               Manage Billing
+            </Button>
+            <Button
+              onClick={() => {
+                setCheckoutLoading(true);
+                createCheckoutSession(user.uid);
+              }}
+              backgroundColor="gray.900"
+              color="white"
+              fontWeight="medium"
+              ml={4}
+              isLoading={isCheckoutLoading}
+              _hover={{ bg: 'gray.700' }}
+              _active={{
+                bg: 'gray.800',
+                transform: 'scale(0.95)'
+              }}
+            >
+              Start Basic subscription
             </Button>
           </Flex>
         </SettingsTable>

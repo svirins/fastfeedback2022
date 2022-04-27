@@ -17,7 +17,7 @@ import {
 import { useAuth } from '@/lib/auth';
 import DashboardShell from '@/components/DashboardShell';
 import Page from '@/components/Page';
-import { createCheckoutSession, goToBillingPortal } from '@/lib/db';
+import { goToBillingPortal } from '@/lib/db';
 
 const FeedbackUsage = () => (
   <StatGroup>
@@ -75,7 +75,6 @@ const SettingsTable = ({ stripeRole, children }) => (
 const Account = () => {
   const { user, signout } = useAuth();
   const [isBillingLoading, setBillingLoading] = useState(false);
-  const [isCheckoutLoading, setCheckoutLoading] = useState(false);
 
   return (
     <DashboardShell>
@@ -123,24 +122,6 @@ const Account = () => {
               }}
             >
               Manage Billing
-            </Button>
-            <Button
-              onClick={() => {
-                setCheckoutLoading(true);
-                createCheckoutSession(user.uid);
-              }}
-              backgroundColor="gray.900"
-              color="white"
-              fontWeight="medium"
-              ml={4}
-              isLoading={isCheckoutLoading}
-              _hover={{ bg: 'gray.700' }}
-              _active={{
-                bg: 'gray.800',
-                transform: 'scale(0.95)'
-              }}
-            >
-              Start Basic subscription
             </Button>
           </Flex>
         </SettingsTable>

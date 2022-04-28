@@ -1,12 +1,13 @@
 import Head from 'next/head';
-import { Box, Button, Flex, Text, Link, HStack } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, Link } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
 import { getAllFeedback } from '@/lib/db-admin';
 import Feedback from '@/components/Feedback';
 import FeedbackLink from '@/components/FeedbackLink';
+import LoginButtons from '@/components/LoginButtons';
 
-import { LogoIcon, GitHubIcon, GoogleIcon } from '@/styles/icons';
+import { LogoIcon } from '@/styles/icons';
 
 const SITE_ID = '358DMknATBHPgIxiNSrE';
 
@@ -33,12 +34,11 @@ const Home = ({ allFeedback }) => {
               dangerouslySetInnerHTML={{
                 __html: `
               if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
-                window.location.href = "/dashboard"
+                window.location.href = "/sites"
               }
             `
               }}
             />
-            <title>Fast Feedback</title>
           </Head>
           <LogoIcon boxSize="24" mb={2} />
           <Text mb={4} fontSize="lg" py={6}>
@@ -57,7 +57,7 @@ const Home = ({ allFeedback }) => {
           </Text>
           {auth.user ? (
             <Button
-              href="/dashboard"
+              href="/sites"
               mt={4}
               size="lg"
               fontWeight="medium"
@@ -75,37 +75,7 @@ const Home = ({ allFeedback }) => {
               View Dashboard
             </Button>
           ) : (
-            <HStack mt={4} spacing="24px">
-              <Button
-                fontWeight="medium"
-                backgroundColor="gray.900"
-                color="white"
-                _hover={{ bg: 'gray.700' }}
-                _active={{
-                  bg: 'gray.800',
-                  transform: 'scale(0.95)'
-                }}
-                onClick={() => auth.signinWithGitHub()}
-                leftIcon={<GitHubIcon />}
-              >
-                Sign In with GitHub
-              </Button>
-              <Button
-                fontWeight="medium"
-                backgroundColor="white"
-                variant="outline"
-                color="gray.900"
-                _hover={{ bg: 'gray.100' }}
-                _active={{
-                  bg: 'gray.100',
-                  transform: 'scale(0.95)'
-                }}
-                onClick={() => auth.signinWithGoogle()}
-                leftIcon={<GoogleIcon />}
-              >
-                Sign In with Google
-              </Button>
-            </HStack>
+            <LoginButtons />
           )}
         </Flex>
       </Box>

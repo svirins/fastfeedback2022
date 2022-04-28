@@ -11,7 +11,7 @@ import {
 import AddSiteModal from './AddSiteModal';
 
 const SiteTableHeader = ({ isPaidAccount }) => (
-  <Box mx={4}>
+  <Box>
     <Breadcrumb>
       <BreadcrumbItem>
         <BreadcrumbLink>Sites</BreadcrumbLink>

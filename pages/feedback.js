@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 import DashboardShell from '@/components/DashboardShell';
 import FeedbackEmptyState from '@/components/FeedbackEmptyState';
-import SiteTableSkeleton from '@/components/SiteTableSkeleton';
+import FeedbackTableSkeleton from '@/components/FeedbackTableSkeleton';
 import FeedbackTable from '@/components/FeedbackTable';
 import FeedbackTableHeader from '@/components/FeedbackTableHeader';
 import Page from '@/components/Page';
@@ -12,12 +12,16 @@ import { useAuth } from '@/lib/auth';
 
 const MyFeedback = () => {
   const { user } = useAuth();
-  const { data } = useSWR(user ? ['/api/feedback', user.token] : null, fetcher);
+  const { data, loading } = useSWR(
+    user ? ['/api/feedback', user.token] : null,
+    fetcher
+  );
+
   if (!data) {
     return (
       <DashboardShell>
         <FeedbackTableHeader />
-        <SiteTableSkeleton />
+        <FeedbackTableSkeleton />
       </DashboardShell>
     );
   }
@@ -25,7 +29,7 @@ const MyFeedback = () => {
   return (
     <DashboardShell>
       <FeedbackTableHeader />
-      {data.feedback ? (
+      {data?.feedback.length > 0 ? (
         <FeedbackTable allFeedback={data.feedback} />
       ) : (
         <FeedbackEmptyState />
@@ -35,7 +39,7 @@ const MyFeedback = () => {
 };
 
 const MyFeedbackPage = () => (
-  <Page name="My Feedback" path="/feedback">
+  <Page>
     <MyFeedback />
   </Page>
 );

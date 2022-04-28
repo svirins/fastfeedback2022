@@ -60,10 +60,32 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
             Are you sure? You cant undo this action afterwards.
           </AlertDialogBody>
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
+            <Button
+              fontWeight="medium"
+              backgroundColor="gray.700"
+              color="white"
+              _hover={{ bg: 'gray.500' }}
+              _active={{
+                bg: 'gray.600',
+                transform: 'scale(0.95)'
+              }}
+              ref={cancelRef}
+              onClick={onClose}
+            >
               Cancel
             </Button>
-            <Button variantColor="red" onClick={onDelete} ml={3}>
+            <Button
+              fontWeight="medium"
+              backgroundColor="red.900"
+              color="white"
+              _hover={{ bg: 'red.700' }}
+              _active={{
+                bg: 'red.800',
+                transform: 'scale(0.95)'
+              }}
+              onClick={onDelete}
+              ml={3}
+            >
               Delete
             </Button>
           </AlertDialogFooter>

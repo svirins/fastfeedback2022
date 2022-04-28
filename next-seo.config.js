@@ -5,16 +5,16 @@ const description = 'Fast Feedback is being built as part of React 2025.';
 const SEO = {
   title,
   description,
-  canonical: 'https://react2025.cf',
+  canonical: 'https://www.react2025.cf',
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: 'https://react2025.cf',
+    url: 'https://www.react2025.cf',
     title,
     description,
     images: [
       {
-        url: 'https://fastfeedback.io/og.png',
+        url: 'https://www.react2025.cf/og.png',
         alt: title,
         width: 1280,
         height: 720

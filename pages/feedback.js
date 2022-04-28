@@ -39,7 +39,7 @@ const MyFeedback = () => {
 };
 
 const MyFeedbackPage = () => (
-  <Page>
+  <Page name="My Feedback" path="/feedback">
     <MyFeedback />
   </Page>
 );

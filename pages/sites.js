@@ -42,7 +42,7 @@ const MySites = () => {
 };
 
 const MySitesPage = () => (
-  <Page>
+  <Page name="My Sites" path="/sites">
     <MySites />
   </Page>
 );

@@ -131,7 +131,7 @@ const Account = () => {
 };
 
 const AccountPage = () => (
-  <Page>
+  <Page name="Account" path="/account">
     <Account />
   </Page>
 );

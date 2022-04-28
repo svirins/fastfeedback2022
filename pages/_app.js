@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import { Global, css } from '@emotion/react';
-
 import { DefaultSeo } from 'next-seo';
 import { AuthProvider } from '@/lib/auth';
 import { customTheme } from '@/styles/theme';
+import { usePanelbear } from '@panelbear/panelbear-nextjs';
 
 import SEO from '../next-seo.config';
 
@@ -32,6 +33,7 @@ const GlobalStyle = ({ children }) => {
 };
 
 const App = ({ Component, pageProps }) => {
+  usePanelbear('NEXT_PUBLIC_PANELBEAR_SITE_ID');
   return (
     <ChakraProvider theme={customTheme}>
       <AuthProvider>
@@ -44,3 +46,7 @@ const App = ({ Component, pageProps }) => {
 };
 
 export default App;
+
+// Router.events.on('routeChangeComplete', () => {
+//   Fathom.trackPageview();
+// });

@@ -33,7 +33,7 @@ const GlobalStyle = ({ children }) => {
 };
 
 const App = ({ Component, pageProps }) => {
-  usePanelbear('NEXT_PUBLIC_PANELBEAR_SITE_ID');
+  usePanelbear(process.env.NEXT_PUBLIC_PANELBEAR_SITE_ID);
   return (
     <ChakraProvider theme={customTheme}>
       <AuthProvider>

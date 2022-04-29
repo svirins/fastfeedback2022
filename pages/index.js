@@ -72,7 +72,7 @@ const Home = ({ allFeedback }) => {
               }}
               as="a"
             >
-              View Dashboard
+              View Sites
             </Button>
           ) : (
             <LoginButtons />

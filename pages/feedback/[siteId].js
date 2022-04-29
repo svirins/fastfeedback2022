@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import { useRouter } from 'next/router';
 
 import DashboardShell from '@/components/DashboardShell';
 import FeedbackEmptyState from '@/components/FeedbackEmptyState';
@@ -10,9 +11,13 @@ import Page from '@/components/Page';
 import fetcher from '@/utils/fetcher';
 import { useAuth } from '@/lib/auth';
 
-const MyFeedback = () => {
+const SiteFeedback = () => {
   const { user } = useAuth();
-  const { data } = useSWR(user ? ['/api/feedback', user.token] : null, fetcher);
+  const { query } = useRouter();
+  const { data } = useSWR(
+    user ? [`/api/feedback/${query.siteId}`, user.token] : null,
+    fetcher
+  );
 
   if (!data) {
     return (
@@ -35,10 +40,10 @@ const MyFeedback = () => {
   );
 };
 
-const MyFeedbackPage = () => (
-  <Page name="My Feedback" path="/feedback">
-    <MyFeedback />
+const SiteFeedbackPage = () => (
+  <Page name="Name of site feedback" path="/feedback/${query.siteId}">
+    <SiteFeedback />
   </Page>
 );
 
-export default MyFeedbackPage;
+export default SiteFeedbackPage;

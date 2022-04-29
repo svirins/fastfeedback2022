@@ -18,7 +18,9 @@ const SiteTableHeader = ({ isPaidAccount }) => (
       </BreadcrumbItem>
     </Breadcrumb>
     <Flex justifyContent="space-between">
-      <Heading mb={8}>My Sites</Heading>
+      <Heading size="lg" mb={8}>
+        My Sites
+      </Heading>
       {isPaidAccount && <AddSiteModal>+ Add Site</AddSiteModal>}
     </Flex>
   </Box>

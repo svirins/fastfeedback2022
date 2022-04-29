@@ -1,6 +1,4 @@
-import { Box, Code, Switch } from '@chakra-ui/react';
-
-import { Table, Tr, Th, Td } from './Table';
+import { Table, Tr, Th } from './Table';
 import FeedbackRow from './FeedbackRow';
 
 const FeedbackTable = ({ allFeedback }) => {

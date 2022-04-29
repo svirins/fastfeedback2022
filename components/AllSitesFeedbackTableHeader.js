@@ -1,14 +1,14 @@
-import React from 'react';
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   Heading,
   Flex,
-  Box
+  Box,
+  Link
 } from '@chakra-ui/react';
 
-const FeedbackTableHeader = () => (
+const AllSitesFeedbackTableHeader = () => (
   <Box>
     <Breadcrumb>
       <BreadcrumbItem>
@@ -16,9 +16,11 @@ const FeedbackTableHeader = () => (
       </BreadcrumbItem>
     </Breadcrumb>
     <Flex justifyContent="space-between">
-      <Heading mb={8}>My Feedback</Heading>
+      <Heading size="lg" mb={8}>
+        All Feedback
+      </Heading>
     </Flex>
   </Box>
 );
 
-export default FeedbackTableHeader;
+export default AllSitesFeedbackTableHeader;

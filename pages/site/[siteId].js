@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
+import DashboardShell from '@/components/DashboardShell';
 
 import Feedback from '@/components/Feedback';
 import { useAuth } from '@/lib/auth';
@@ -58,34 +59,36 @@ const FeedbackPage = ({ initialFeedback }) => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width="full"
-      maxWidth="700px"
-      margin="0 auto"
-    >
-      {auth.user && (
-        <Box as="form" onSubmit={onSubmit}>
-          <FormControl my={8}>
-            <FormLabel htmlFor="comment">Comment</FormLabel>
-            <Input ref={inputEl} id="comment" placeholder="Leave a comment" />
-            <Button
-              mt={4}
-              type="submit"
-              fontWeight="medium"
-              isDisabled={router.isFallback}
-            >
-              Add Comment
-            </Button>
-          </FormControl>
-        </Box>
-      )}
-      {allFeedback &&
-        allFeedback.map((feedback) => (
-          <Feedback key={feedback.id} {...feedback} />
-        ))}
-    </Box>
+    <DashboardShell>
+      <Box
+        display="flex"
+        flexDirection="column"
+        width="full"
+        maxWidth="700px"
+        margin="0 auto"
+      >
+        {auth.user && (
+          <Box as="form" onSubmit={onSubmit}>
+            <FormControl my={8}>
+              <FormLabel htmlFor="comment">Comment</FormLabel>
+              <Input ref={inputEl} id="comment" placeholder="Leave a comment" />
+              <Button
+                mt={4}
+                type="submit"
+                fontWeight="medium"
+                isDisabled={router.isFallback}
+              >
+                Add Comment
+              </Button>
+            </FormControl>
+          </Box>
+        )}
+        {allFeedback &&
+          allFeedback.map((feedback) => (
+            <Feedback key={feedback.id} {...feedback} />
+          ))}
+      </Box>
+    </DashboardShell>
   );
 };
 

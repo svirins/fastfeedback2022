@@ -1,13 +1,14 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { auth } from '@/lib/firebase-admin';
-import { getUserFeedback } from '@/lib/db-admin';
+import { getAllFeedbackForSites } from '@/lib/db-admin';
 import { logger, formatObjectKeys } from '@/utils/logger';
 
 export default async (req, res) => {
   try {
     const { uid } = await auth.verifyIdToken(req.headers.token);
-    const feedback = await getUserFeedback(uid);
-    res.status(200).json(feedback);
+    const { feedback } = await getAllFeedbackForSites(uid);
+
+    res.status(200).json({ feedback });
   } catch (error) {
     logger.error(
       {
@@ -22,6 +23,7 @@ export default async (req, res) => {
       },
       error.message
     );
+
     res.status(500).json({ error });
   }
 };

@@ -1,10 +1,11 @@
-import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { mutate } from 'swr';
+
 import {
   Button,
   FormControl,
   FormLabel,
-  Input,
+  Switch,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -15,35 +16,33 @@ import {
   useDisclosure,
   useToast
 } from '@chakra-ui/react';
+
 import { SettingsIcon } from '@chakra-ui/icons';
 
+import { updateSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
 
-const EditSiteModal = ({ children }) => {
-  const initialRef = useRef();
+const EditSiteModal = ({ settings, siteId, children }) => {
   const toast = useToast();
   const { user } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
 
-  // TODO: Implement edit site logic
-  const onEditSite = ({ name, url }) => {
+  const onUpdateSite = async (newSettings) => {
+    await updateSite(siteId, {
+      settings: newSettings
+    });
     toast({
       title: 'Success!',
-      description: "We've added your site",
+      description: "We've updated your site.",
       status: 'success',
       duration: 5000,
       isClosable: true
     });
-    // mutate(
-    //   ['/api/sites', user.token],
-    //   async (data) => ({
-    //     sites: [{ id, ...newSite }, ...data.sites]
-    //   }),
-    //   false
-    // );
+    mutate(['/api/sites', user.token]);
     onClose();
   };
+
   return (
     <>
       <Button
@@ -59,33 +58,48 @@ const EditSiteModal = ({ children }) => {
         }}
       >
         {children}
-      </Button>{' '}
-      <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
+      </Button>
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent as="form" onSubmit={handleSubmit(onEditSite)}>
+        <ModalContent as="form" onSubmit={handleSubmit(onUpdateSite)}>
           <ModalHeader fontWeight="bold">Edit Site</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>Name</FormLabel>
-              <Input
-                placeholder="My site"
-                name="name"
-                ref={register({
-                  required: 'Required'
-                })}
+              <Switch
+                key={settings?.timestamp}
+                name="timestamp"
+                ref={register()}
+                color="green"
+                defaultIsChecked={settings?.timestamp}
               />
+              <FormLabel ml={2} htmlFor="show-timestamp">
+                Show Timestamp
+              </FormLabel>
             </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Link</FormLabel>
-              <Input
-                placeholder="https://website.com"
-                name="url"
-                ref={register({
-                  required: 'Required'
-                })}
+            <FormControl>
+              <Switch
+                key={settings?.icons}
+                name="icons"
+                ref={register()}
+                color="green"
+                defaultIsChecked={settings?.icons}
               />
+              <FormLabel ml={2} htmlFor="show-icons">
+                Show Icon
+              </FormLabel>
+            </FormControl>
+            <FormControl>
+              <Switch
+                key={settings?.ratings}
+                name="ratings"
+                ref={register()}
+                color="green"
+                defaultIsChecked={settings?.ratings}
+              />
+              <FormLabel ml={2} htmlFor="show-ratings">
+                Show Ratings
+              </FormLabel>
             </FormControl>
           </ModalBody>
 
@@ -99,7 +113,7 @@ const EditSiteModal = ({ children }) => {
               fontWeight="medium"
               type="submit"
             >
-              Create
+              Update
             </Button>
           </ModalFooter>
         </ModalContent>

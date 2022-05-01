@@ -8,7 +8,7 @@ import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import SiteTableHeader from '@/components/SiteTableHeader';
 import Page from '@/components/Page';
 import SiteTable from '@/components/SiteTable';
-import FreePlanEmptyState from '@/components/FreePlanEmptyState';
+import UpgradeEmptyState from '@/components/UpgradeEmptyState';
 
 // TODO: check second if for correctness
 
@@ -38,7 +38,7 @@ const Dashboard = () => {
   return (
     <DashboardShell>
       <SiteTableHeader isPaidAccount={isPaidAccount} />
-      {isPaidAccount ? <SiteEmptyState /> : <FreePlanEmptyState />}
+      {isPaidAccount ? <SiteEmptyState /> : <UpgradeEmptyState />}
     </DashboardShell>
   );
 };

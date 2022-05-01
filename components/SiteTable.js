@@ -1,8 +1,8 @@
-import React from 'react';
 import NextLink from 'next/link';
 import { Box, Link } from '@chakra-ui/react';
 import { parseISO, format } from 'date-fns';
 import { Table, Tr, Th, Td } from './Table';
+import DeleteSiteButton from './DeleteSiteButton';
 
 // TODO: implement delete site logic
 
@@ -34,8 +34,8 @@ const SiteTable = ({ sites }) => {
               <Td>{site.url}</Td>
               <Td>
                 <NextLink
-                  href="/feedback/[siteId]"
-                  as={`/feedback/${site.id}`}
+                  href="/site/[siteId]"
+                  as={`/site/${site.id}`}
                   passHref
                 >
                   <Link color="blue.500" fontWeight="medium">
@@ -44,6 +44,9 @@ const SiteTable = ({ sites }) => {
                 </NextLink>
               </Td>
               <Td>{format(parseISO(site.createdAt), 'PPpp')}</Td>
+              <Td>
+                <DeleteSiteButton siteId={site.id} />
+              </Td>
             </Box>
           ))}
         </tbody>

@@ -10,10 +10,12 @@ import DeleteFeedbackButton from './DeleteFeedbackButton';
 
 const FeedbackRow = ({ id, author, text, route, status }) => {
   const { user } = useAuth();
-  const [isChecked, setChecked] = useState(status === 'approved');
+  const [isChecked, setChecked] = useState(status === 'active');
   const toggleFeedback = async () => {
     setChecked(!isChecked);
-    await updateFeedback(id, { status: isChecked ? 'pending' : 'approved' });
+    await updateFeedback(id, {
+      status: isChecked ? 'pending' : 'active'
+    });
     mutate(['/api/feedback', user.token]);
   };
   return (

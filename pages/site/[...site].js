@@ -1,14 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
-import { Box, Button, FormControl, Textarea } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import { Box, FormControl, Textarea, Button } from '@chakra-ui/react';
 
-import LoginButtons from '@/components/LoginButtons';
-import DashboardShell from '@/components/DashboardShell';
-import Feedback from '@/components/Feedback';
-import SiteHeader from '@/components/SiteHeader';
 import { useAuth } from '@/lib/auth';
 import { createFeedback } from '@/lib/db';
 import { getAllFeedback, getAllSites, getSite } from '@/lib/db-admin';
+import Feedback from '@/components/Feedback';
+import DashboardShell from '@/components/DashboardShell';
+import SiteHeader from '@/components/SiteHeader';
+import LoginButtons from '@/components/LoginButtons';
 
 export async function getStaticProps(context) {
   const [siteId, route] = context.params.site;
@@ -20,6 +20,7 @@ export async function getStaticProps(context) {
       initialFeedback: feedback,
       site
     },
+
     revalidate: 5
   };
 }
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
   const { sites } = await getAllSites();
   const paths = sites.map((site) => ({
     params: {
-      siteId: [site.id.toString()]
+      site: [site.id.toString()]
     }
   }));
 
@@ -83,7 +84,7 @@ const FeedbackPage = ({ initialFeedback, site }) => {
           transform: 'scale(0.95)'
         }}
       >
-        Leave FeedbackLoginButtons
+        Leave Feedback
       </Button>
     ) : (
       <LoginButtons />

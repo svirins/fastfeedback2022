@@ -87,7 +87,7 @@ const Home = ({ allFeedback }) => {
         margin="0 auto"
         mt={8}
       >
-        <FeedbackLink siteId={SITE_ID} />
+        <FeedbackLink siteId={[SITE_ID]} />
         {allFeedback.map((feedback) => (
           <Feedback key={feedback.id} {...feedback} />
         ))}

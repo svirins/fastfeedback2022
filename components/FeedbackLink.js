@@ -1,15 +1,25 @@
 import { Flex, Link } from '@chakra-ui/react';
-
-// TODO: put a correct href into Link component
-
-export default function FeedbackLink({ siteId }) {
+// TODO: fix error with path undefined
+export default function FeedbackLink({ paths }) {
   return (
-    <Flex justifyContent="space-between" mb={8} width="full" mt={1}>
-      <Link fontWeight="bold" fontSize="sm" href={`/p/${siteId}`}>
+    <Flex
+      align={['flex-start', 'center']}
+      justifyContent="space-between"
+      mb={8}
+      width="full"
+      mt={1}
+      direction={['column', 'row']}
+    >
+      <Link
+        fontWeight="bold"
+        fontSize="sm"
+        href={`/site/${paths?.join('/')}`}
+        target="_blank"
+      >
         Leave a comment →
       </Link>
-      <Link fontSize="xs" color="blackAlpha.500" href="/">
-        Powered by Fast Feedback
+      <Link fontSize="xs" color="blackAlpha.500" href="/" target="_blank">
+        Powered by Fast Feedback (Alpha)
       </Link>
     </Flex>
   );

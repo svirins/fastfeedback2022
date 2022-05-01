@@ -1,6 +1,6 @@
 import { Flex, Link } from '@chakra-ui/react';
-// TODO: fix error with path undefined
 export default function FeedbackLink({ paths }) {
+  console.log(paths);
   return (
     <Flex
       align={['flex-start', 'center']}

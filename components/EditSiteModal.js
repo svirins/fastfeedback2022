@@ -27,10 +27,10 @@ const EditSiteModal = ({ settings, siteId, children }) => {
   const { user } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
-
+  // TODO: fix site update values change in UI after update
   const onUpdateSite = async (newSettings) => {
     await updateSite(siteId, {
-      settings: newSettings
+      settings: { ...newSettings }
     });
     toast({
       title: 'Success!',

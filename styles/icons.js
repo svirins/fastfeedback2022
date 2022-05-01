@@ -8,12 +8,12 @@ export const LogoIcon = (props) => (
     />
   </Icon>
 );
-
+// TODO: find better social icons (low priority)
 export const GitHubIcon = (props) => (
   <Icon {...props}>
     <g
-      fill="none"
-      stroke="white"
+      fill="white"
+      stroke="black"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

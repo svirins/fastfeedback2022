@@ -9,7 +9,7 @@ import LoginButtons from '@/components/LoginButtons';
 
 import { LogoIcon } from '@/styles/icons';
 
-const SITE_ID = '358DMknATBHPgIxiNSrE';
+const SITE_ID = 'CqQV34NpOSaAy1TIGGQX';
 
 export async function getStaticProps(context) {
   const { feedback } = await getAllFeedback(SITE_ID);
@@ -87,7 +87,7 @@ const Home = ({ allFeedback }) => {
         margin="0 auto"
         mt={8}
       >
-        <FeedbackLink siteId={[SITE_ID]} />
+        <FeedbackLink paths={[SITE_ID]} />
         {allFeedback.map((feedback) => (
           <Feedback key={feedback.id} {...feedback} />
         ))}

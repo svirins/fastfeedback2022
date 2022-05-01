@@ -1,23 +1,18 @@
-import { Box, Heading, Text, Divider, Icon, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, Divider, Flex } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import { GitHubIcon, GoogleIcon } from '@/styles/icons';
 import { QuestionIcon } from '@chakra-ui/icons';
 
 const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
-  // TODO: double-check icon logic and site settings passing
-  const ProviderIcon = (providerName, props) => {
-    let returnIcon;
-    switch (providerName) {
-      case 'google':
-        returnIcon = <GoogleIcon {...props} />;
-        break;
-      case 'github':
-        returnIcon = <GitHubIcon {...props} />;
-        break;
-      default:
-        returnIcon = <QuestionIcon {...props} />;
+  const ProviderIcon = ({ providerName, ...restProps }) => {
+    // const { providerName, ...restProps } = props;
+    if (providerName === 'google') {
+      return <GoogleIcon {...restProps} />;
     }
-    return returnIcon;
+    if (providerName === 'github') {
+      return <GitHubIcon {...restProps} fill="black" />;
+    }
+    return <QuestionIcon {...restProps} />;
   };
 
   return (

@@ -7,8 +7,11 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-  Button
+  Button,
+  IconButton
 } from '@chakra-ui/react';
+
+import { DeleteIcon } from '@chakra-ui/icons';
 
 import { deleteSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
@@ -35,9 +38,9 @@ const DeleteSiteButton = ({ siteId }) => {
 
   return (
     <>
-      <Button
+      <IconButton
         aria-label="Delete site"
-        icon="delete"
+        icon={<DeleteIcon />}
         variant="ghost"
         onClick={() => setIsOpen(true)}
       />
@@ -56,12 +59,29 @@ const DeleteSiteButton = ({ siteId }) => {
             You can not undo this action afterwards.
           </AlertDialogBody>
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
+            <Button
+              ref={cancelRef}
+              onClick={onClose}
+              fontWeight="medium"
+              backgroundColor="gray.700"
+              color="white"
+              _hover={{ bg: 'gray.500' }}
+              _active={{
+                bg: 'gray.600',
+                transform: 'scale(0.95)'
+              }}
+            >
               Cancel
             </Button>
             <Button
-              fontWeight="bold"
-              variantColor="red"
+              fontWeight="medium"
+              backgroundColor="red.900"
+              color="white"
+              _hover={{ bg: 'red.700' }}
+              _active={{
+                bg: 'red.800',
+                transform: 'scale(0.95)'
+              }}
               onClick={onDelete}
               ml={3}
             >

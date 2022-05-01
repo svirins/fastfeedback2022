@@ -4,8 +4,6 @@ import { parseISO, format } from 'date-fns';
 import { Table, Tr, Th, Td } from './Table';
 import DeleteSiteButton from './DeleteSiteButton';
 
-// TODO: implement delete site logic
-
 const SiteTable = ({ sites }) => {
   return (
     <Box overflowX="scroll">

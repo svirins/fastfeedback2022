@@ -1,6 +1,6 @@
 import { Table, Tr, Th } from './Table';
 import FeedbackRow from './FeedbackRow';
-// TODO: implement delete comment button
+
 const FeedbackTable = ({ feedback }) => {
   return (
     <Table>

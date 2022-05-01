@@ -4,7 +4,7 @@ import DashboardShell from '@/components/DashboardShell';
 import FeedbackEmptyState from '@/components/FeedbackEmptyState';
 import FeedbackTableSkeleton from '@/components/FeedbackTableSkeleton';
 import FeedbackTable from '@/components/FeedbackTable';
-import AllSitesFeedbackTableHeader from '@/components/AllSitesFeedbackTableHeader';
+import FeedbackTableHeader from '@/components/FeedbackTableHeader';
 import Page from '@/components/Page';
 
 import fetcher from '@/utils/fetcher';
@@ -17,7 +17,7 @@ const MyFeedback = () => {
   if (!data) {
     return (
       <DashboardShell>
-        <AllSitesFeedbackTableHeader />
+        <FeedbackTableHeader />
         <FeedbackTableSkeleton />
       </DashboardShell>
     );
@@ -25,9 +25,9 @@ const MyFeedback = () => {
 
   return (
     <DashboardShell>
-      <AllSitesFeedbackTableHeader />
+      <FeedbackTableHeader />
       {data?.feedback.length > 0 ? (
-        <FeedbackTable allFeedback={data.feedback} />
+        <FeedbackTable feedback={data.feedback} />
       ) : (
         <FeedbackEmptyState />
       )}

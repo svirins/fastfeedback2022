@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Flex, Link, Avatar } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
@@ -22,9 +21,7 @@ const DashboardShell = ({ children }) => {
           px={8}
         >
           <Flex>
-            <NextLink href="/" passHref>
-              <LogoIcon boxSize="24px" mr={8} />
-            </NextLink>
+            <LogoIcon boxSize="24px" mr={8} />
             <NextLink href="/sites" passHref>
               <Link mr={4}>Sites</Link>
             </NextLink>

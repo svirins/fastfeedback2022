@@ -1,9 +1,8 @@
-import React from 'react';
 import { NextSeo } from 'next-seo';
 
 const Page = ({ name, path, children }) => {
   const title = `Fast Feedback – ${name}`;
-  const url = `https://react2025.cf${path}`;
+  const url = `${process.env.NEXT_PUBLIC_PRODUCTION_SITE_URL}${path}`;
 
   return (
     <>

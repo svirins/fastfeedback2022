@@ -10,7 +10,9 @@ import Page from '@/components/Page';
 import SiteTable from '@/components/SiteTable';
 import FreePlanEmptyState from '@/components/FreePlanEmptyState';
 
-const MySites = () => {
+// TODO: check second if for correctness
+
+const Dashboard = () => {
   const { user } = useAuth();
   const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher);
   const isPaidAccount = user?.stripeRole !== 'free';
@@ -41,10 +43,10 @@ const MySites = () => {
   );
 };
 
-const MySitesPage = () => (
+const DashboardPage = () => (
   <Page name="My Sites" path="/sites">
-    <MySites />
+    <Dashboard />
   </Page>
 );
 
-export default MySitesPage;
+export default DashboardPage;

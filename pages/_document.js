@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+// TODO: set Google Font in a correct way
 
 class MyDocument extends Document {
   render() {

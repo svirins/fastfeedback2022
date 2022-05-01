@@ -18,12 +18,12 @@ export async function getStaticProps(context) {
     props: {
       allFeedback: feedback
     },
-    revalidate: 1
+    revalidate: 5
   };
 }
 
 const Home = ({ allFeedback }) => {
-  const auth = useAuth();
+  const { user } = useAuth();
 
   return (
     <>
@@ -55,7 +55,7 @@ const Home = ({ allFeedback }) => {
             </Link>
             {`. It's the easiest way to add comments or reviews to your static site. It's still a work-in-progress, but you can try it out by logging in.`}
           </Text>
-          {auth.user ? (
+          {user ? (
             <Button
               href="/sites"
               mt={4}

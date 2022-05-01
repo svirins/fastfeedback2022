@@ -4,6 +4,8 @@ import { Box, Link } from '@chakra-ui/react';
 import { parseISO, format } from 'date-fns';
 import { Table, Tr, Th, Td } from './Table';
 
+// TODO: implement delete site logic
+
 const SiteTable = ({ sites }) => {
   return (
     <Box overflowX="scroll">

@@ -14,9 +14,10 @@ import {
   StatHelpText
 } from '@chakra-ui/react';
 
-import { useAuth } from '@/lib/auth';
 import DashboardShell from '@/components/DashboardShell';
 import Page from '@/components/Page';
+
+import { useAuth } from '@/lib/auth';
 import { goToBillingPortal } from '@/lib/db';
 
 const FeedbackUsage = () => (

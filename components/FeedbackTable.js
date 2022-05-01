@@ -1,7 +1,7 @@
 import { Table, Tr, Th } from './Table';
 import FeedbackRow from './FeedbackRow';
-
-const FeedbackTable = ({ allFeedback }) => {
+// TODO: implement delete comment button
+const FeedbackTable = ({ feedback }) => {
   return (
     <Table>
       <thead>
@@ -14,8 +14,8 @@ const FeedbackTable = ({ allFeedback }) => {
         </Tr>
       </thead>
       <tbody>
-        {allFeedback.map((feedback) => (
-          <FeedbackRow key={feedback.id} {...feedback} />
+        {feedback.map((siteFeedback) => (
+          <FeedbackRow key={siteFeedback.id} {...siteFeedback} />
         ))}
       </tbody>
     </Table>

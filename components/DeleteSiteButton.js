@@ -74,7 +74,7 @@ const DeleteSiteButton = ({ siteId }) => {
               Cancel
             </Button>
             <Button
-              fontWeight="medium"
+              fontWeight="bold"
               backgroundColor="red.900"
               color="white"
               _hover={{ bg: 'red.700' }}

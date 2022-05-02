@@ -27,7 +27,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
   const { user } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
-  // TODO: fix site update values change in UI after update
+  // TODO: fix missing re-render after settings update
   const onUpdateSite = async (newSettings) => {
     await updateSite(siteId, {
       settings: { ...newSettings }
@@ -39,7 +39,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
       duration: 5000,
       isClosable: true
     });
-    mutate(['/api/sites', user.token]);
+    mutate([`/api/sites`, user.token]);
     onClose();
   };
 
@@ -70,7 +70,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
                 key={settings?.timestamp}
                 name="timestamp"
                 ref={register()}
-                color="green"
+                colorScheme="green"
                 defaultIsChecked={settings?.timestamp}
               />
               <FormLabel ml={2} htmlFor="show-timestamp">
@@ -82,7 +82,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
                 key={settings?.icons}
                 name="icons"
                 ref={register()}
-                color="green"
+                colorScheme="green"
                 defaultIsChecked={settings?.icons}
               />
               <FormLabel ml={2} htmlFor="show-icons">
@@ -94,7 +94,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
                 key={settings?.ratings}
                 name="ratings"
                 ref={register()}
-                color="green"
+                colorScheme="green"
                 defaultIsChecked={settings?.ratings}
               />
               <FormLabel ml={2} htmlFor="show-ratings">

@@ -11,9 +11,6 @@ import {
 import EditSiteModal from '@/components/EditSiteModal';
 
 const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
-  const siteName = site?.name;
-
-  // TODO: remove line below after passing isSiteOwner
   return (
     <Box mx={4}>
       <Breadcrumb>
@@ -24,10 +21,10 @@ const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
         </BreadcrumbItem>
         <BreadcrumbItem>
           <NextLink href={`/site/${siteId}`} passHref>
-            <BreadcrumbLink>{siteName || '-'}</BreadcrumbLink>
+            <BreadcrumbLink>{site?.name || '-'}</BreadcrumbLink>
           </NextLink>
         </BreadcrumbItem>
-        {siteName && route && (
+        {site?.name && route && (
           <BreadcrumbItem>
             <NextLink href={`/site/${siteId}/${route}`} passHref>
               <BreadcrumbLink>{route}</BreadcrumbLink>
@@ -36,7 +33,7 @@ const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
         )}
       </Breadcrumb>
       <Flex justifyContent="space-between">
-        <Heading mb={8}>{siteName || '-'}</Heading>
+        <Heading mb={8}>{site?.name || '-'}</Heading>
         {isSiteOwner && (
           <EditSiteModal settings={site?.settings} siteId={siteId}>
             Edit Site

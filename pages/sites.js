@@ -9,9 +9,7 @@ import SiteTableHeader from '@/components/SiteTableHeader';
 import Page from '@/components/Page';
 import SiteTable from '@/components/SiteTable';
 import UpgradeEmptyState from '@/components/UpgradeEmptyState';
-
-// TODO: check second if for correctness
-
+``;
 const Dashboard = () => {
   const { user } = useAuth();
   const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher);
@@ -26,7 +24,7 @@ const Dashboard = () => {
     );
   }
 
-  if (data.sites.length) {
+  if (data.sites?.length) {
     return (
       <DashboardShell>
         <SiteTableHeader isPaidAccount={isPaidAccount} />

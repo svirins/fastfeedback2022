@@ -25,7 +25,6 @@ const EditSiteModal = ({ settings, siteId, children }) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
-  // TODO: fix missing re-render after settings update
   const onUpdateSite = async (newSettings) => {
     await updateSite(siteId, {
       settings: { ...newSettings }

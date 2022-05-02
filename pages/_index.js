@@ -2,10 +2,14 @@ import Head from 'next/head';
 import { Box, Button, Flex, Text, Link } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
-
+import { getAllFeedback, getSite } from '@/lib/db-admin';
+import Feedback from '@/components/Feedback';
+import FeedbackLink from '@/components/FeedbackLink';
 import LoginButtons from '@/components/LoginButtons';
 
 import { LogoIcon } from '@/styles/icons';
+
+const SITE_ID = 'pRARwuWTpyrrPkmKpvL4';
 
 // export async function getStaticProps(context) {
 //   const { feedback } = await getAllFeedback(SITE_ID);
@@ -19,7 +23,7 @@ import { LogoIcon } from '@/styles/icons';
 //   };
 // }
 
-const Home = () => {
+const Home = ({ allFeedback, site }) => {
   const { user } = useAuth();
 
   return (
@@ -83,7 +87,17 @@ const Home = () => {
         maxWidth="700px"
         margin="0 auto"
         mt={8}
-      ></Box>
+      >
+        {/* <FeedbackLink paths={[SITE_ID]} />
+        {allFeedback.map((feedback, index) => (
+          <Feedback
+            key={feedback.id}
+            settings={site?.settings}
+            isLast={index === allFeedback.length - 1}
+            {...feedback}
+          />
+        ))} */}
+      </Box>
     </>
   );
 };

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import { auth } from '@/lib/firebase-admin';
 import { getAllFeedbackForSites } from '@/lib/db-admin';
 import { logger, formatObjectKeys } from '@/utils/logger';

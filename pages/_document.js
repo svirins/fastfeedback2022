@@ -6,6 +6,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <link rel="icon" href="/favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=optional"

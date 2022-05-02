@@ -1,14 +1,19 @@
-import { AuthProvider } from '@/lib/auth';
-import { customTheme } from '@/styles/theme';
+import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import { css, Global } from '@emotion/react';
 import { usePanelbear } from '@panelbear/panelbear-nextjs';
-import { DefaultSeo } from 'next-seo';
+import { AuthProvider } from '@/lib/auth';
+import { customTheme } from '@/styles/theme';
+
 import SEO from '../next-seo.config';
 
 const GlobalStyle = ({ children }) => {
   return (
     <>
+      <Head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+      </Head>
       <CSSReset />
       <Global
         styles={css`

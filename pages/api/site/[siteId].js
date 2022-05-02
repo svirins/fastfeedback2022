@@ -1,12 +1,12 @@
-import { auth } from '@/lib/firebase-admin';
-import { getUserSites } from '@/lib/db-admin';
+import { getSite } from '@/lib/db-admin';
 import { logger, formatObjectKeys } from '@/utils/logger';
 
 export default async (req, res) => {
   try {
-    const { uid } = await auth.verifyIdToken(req.headers.token);
-    const sites = await getUserSites(uid);
-    res.status(200).json(sites);
+    const { siteId } = req.query;
+    const { site } = await getSite(siteId);
+
+    res.status(200).json({ site });
   } catch (error) {
     logger.error(
       {
@@ -21,6 +21,7 @@ export default async (req, res) => {
       },
       error.message
     );
+
     res.status(500).json({ error });
   }
 };

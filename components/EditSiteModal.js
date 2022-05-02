@@ -20,11 +20,9 @@ import {
 import { SettingsIcon } from '@chakra-ui/icons';
 
 import { updateSite } from '@/lib/db';
-import { useAuth } from '@/lib/auth';
 
 const EditSiteModal = ({ settings, siteId, children }) => {
   const toast = useToast();
-  const { user } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
   // TODO: fix missing re-render after settings update
@@ -39,7 +37,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
       duration: 5000,
       isClosable: true
     });
-    mutate([`/api/sites`, user.token]);
+    mutate(`/api/site/${siteId}`);
     onClose();
   };
 

@@ -10,7 +10,7 @@ import Page from '@/components/Page';
 import fetcher from '@/utils/fetcher';
 import { useAuth } from '@/lib/auth';
 
-const MyFeedback = () => {
+const AllFeedback = () => {
   const { user } = useAuth();
   const { data } = useSWR(user ? ['/api/feedback', user.token] : null, fetcher);
 
@@ -35,10 +35,10 @@ const MyFeedback = () => {
   );
 };
 
-const MyFeedbackPage = () => (
+const AllFeedbackPage = () => (
   <Page name="My Feedback" path="/feedback">
-    <MyFeedback />
+    <AllFeedback />
   </Page>
 );
 
-export default MyFeedbackPage;
+export default AllFeedbackPage;

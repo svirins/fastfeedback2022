@@ -20,7 +20,7 @@ const LoginButtons = () => {
         onClick={() => auth.signinWithGitHub()}
         leftIcon={<GitHubIcon />}
       >
-        Sign In with GitHub
+        Continue with GitHub
       </Button>
       <Button
         fontWeight="medium"
@@ -35,7 +35,7 @@ const LoginButtons = () => {
         onClick={() => auth.signinWithGoogle()}
         leftIcon={<GoogleIcon />}
       >
-        Sign In with Google
+        Continue with Google
       </Button>
     </HStack>
   );

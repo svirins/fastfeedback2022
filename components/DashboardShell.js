@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 
 import { useAuth } from '@/lib/auth';
 import { LogoIcon } from '@/styles/icons';
+import Footer from './Footer';
 
 const DashboardShell = ({ children }) => {
   const { user } = useAuth();
@@ -40,6 +41,7 @@ const DashboardShell = ({ children }) => {
       <Flex margin="0 auto" direction="column" maxW="1250px" px={8}>
         {children}
       </Flex>
+      <Footer />
     </Box>
   );
 };

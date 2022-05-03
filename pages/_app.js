@@ -2,9 +2,11 @@ import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import { css, Global } from '@emotion/react';
+import { MDXProvider } from '@mdx-js/react';
 import { usePanelbear } from '@panelbear/panelbear-nextjs';
 import { AuthProvider } from '@/lib/auth';
 import { customTheme } from '@/styles/theme';
+import MDXComponents from '@/components/MDXComponents';
 
 import SEO from '../next-seo.config';
 
@@ -42,9 +44,11 @@ const App = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={customTheme}>
       <AuthProvider>
-        <DefaultSeo {...SEO} />
-        <GlobalStyle />
-        <Component {...pageProps} />
+        <MDXProvider components={MDXComponents}>
+          <DefaultSeo {...SEO} />
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </MDXProvider>
       </AuthProvider>
     </ChakraProvider>
   );

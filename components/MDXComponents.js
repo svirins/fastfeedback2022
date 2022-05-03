@@ -1,4 +1,5 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/react */
+
 import {
   Box,
   Callout,
@@ -10,7 +11,7 @@ import {
   Text,
   Divider,
   useColorMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { jsx } from '@emotion/react';
 import NextLink from 'next/link';
 

@@ -27,6 +27,7 @@ const UpgradeEmptyState = () => {
           setCheckoutLoading(true);
           createCheckoutSession(user.uid);
         }}
+        id="upgrade-site-button"
         backgroundColor="gray.900"
         color="white"
         fontWeight="medium"

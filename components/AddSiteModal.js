@@ -80,6 +80,7 @@ const AddSiteModal = ({ children }) => {
             <FormControl>
               <FormLabel>Name</FormLabel>
               <Input
+                id="site-name"
                 placeholder="My site"
                 name="name"
                 ref={register({
@@ -91,6 +92,7 @@ const AddSiteModal = ({ children }) => {
             <FormControl mt={4}>
               <FormLabel>Link</FormLabel>
               <Input
+                id="site-url"
                 placeholder="https://website.com"
                 name="url"
                 ref={register({
@@ -105,6 +107,7 @@ const AddSiteModal = ({ children }) => {
               Cancel
             </Button>
             <Button
+              id="add-site-submit"
               backgroundColor="#99FFFE"
               color="#194D4C"
               fontWeight="medium"

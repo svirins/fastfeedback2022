@@ -2,24 +2,28 @@ import Head from 'next/head';
 import { Box, Button, Flex, Text, Link } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
-
+import { getAllFeedback, getSite } from '@/lib/db-admin';
+import Feedback from '@/components/Feedback';
+import FeedbackLink from '@/components/FeedbackLink';
 import LoginButtons from '@/components/LoginButtons';
 
 import { LogoIcon } from '@/styles/icons';
 
-// export async function getStaticProps(context) {
-//   const { feedback } = await getAllFeedback(SITE_ID);
-//   const { site } = await getSite(SITE_ID);
-//   return {
-//     props: {
-//       allFeedback: feedback,
-//       site
-//     },
-//     revalidate: 5
-//   };
-// }
+const SITE_ID = process.env.NEXT_PUBLIC_INDEX_PAGE_SITE_ID;
 
-const Home = () => {
+export async function getStaticProps(context) {
+  const { feedback } = await getAllFeedback(SITE_ID);
+  const { site } = await getSite(SITE_ID);
+  return {
+    props: {
+      allFeedback: feedback,
+      site
+    },
+    revalidate: 5
+  };
+}
+
+const Home = ({ allFeedback, site }) => {
   const { user } = useAuth();
 
   return (
@@ -56,15 +60,14 @@ const Home = () => {
             <Button
               href="/sites"
               mt={4}
-              size="lg"
               fontWeight="medium"
-              backgroundColor="white"
+              backgroundColor="gray.900"
               maxW="200px"
               variant="outline"
-              color="gray.900"
-              _hover={{ bg: 'gray.100' }}
+              color="white"
+              _hover={{ bg: 'gray.700' }}
               _active={{
-                bg: 'gray.100',
+                bg: 'gray.800',
                 transform: 'scale(0.95)'
               }}
               as="a"
@@ -83,7 +86,17 @@ const Home = () => {
         maxWidth="700px"
         margin="0 auto"
         mt={8}
-      ></Box>
+      >
+        <FeedbackLink paths={[SITE_ID]} />
+        {allFeedback.map((feedback, index) => (
+          <Feedback
+            key={feedback.id}
+            settings={site?.settings}
+            isLast={index === allFeedback.length - 1}
+            {...feedback}
+          />
+        ))}
+      </Box>
     </>
   );
 };

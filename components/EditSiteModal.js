@@ -20,7 +20,7 @@ import {
 import { SettingsIcon } from '@chakra-ui/icons';
 
 import { updateSite } from '@/lib/db';
-
+// TODO: upgrade react-hook-form 5=>7
 const EditSiteModal = ({ settings, siteId, children }) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();

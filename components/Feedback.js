@@ -2,10 +2,25 @@ import { Box, Heading, Text, Divider, Flex } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import { GitHubIcon, GoogleIcon } from '@/styles/icons';
 import { QuestionIcon } from '@chakra-ui/icons';
+import { useTheme } from '@/utils/useTheme';
 
 const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
+  const colorMode = useTheme();
+
+  const authorColor = {
+    light: 'gray.900',
+    dark: 'gray.200'
+  };
+  const textColor = {
+    light: 'gray.800',
+    dark: 'gray.300'
+  };
+  const dividerColor = {
+    light: 'gray.200',
+    dark: 'gray.700'
+  };
+
   const ProviderIcon = ({ providerName, ...restProps }) => {
-    // const { providerName, ...restProps } = props;
     if (providerName === 'google') {
       return <GoogleIcon {...restProps} />;
     }
@@ -18,7 +33,13 @@ const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
   return (
     <Box borderRadius={4} maxWidth="700px" w="full">
       <Flex align="center">
-        <Heading size="sm" as="h3" mb={0} color="gray.900" fontWeight="medium">
+        <Heading
+          size="sm"
+          as="h3"
+          mb={0}
+          color={authorColor[colorMode]}
+          fontWeight="medium"
+        >
           {author}
         </Heading>
         {settings?.icons && (
@@ -34,10 +55,10 @@ const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
           {format(parseISO(createdAt), 'PPpp')}
         </Text>
       )}
-      <Text color="gray.800">{text}</Text>
+      <Text color={textColor[colorMode]}>{text}</Text>
       {!isLast && (
         <Divider
-          borderColor="gray.200"
+          borderColor={dividerColor[colorMode]}
           backgroundColor="gray.200"
           mt={6}
           mb={6}

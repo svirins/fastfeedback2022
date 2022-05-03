@@ -26,7 +26,7 @@ const AllFeedback = () => {
   return (
     <DashboardShell>
       <FeedbackTableHeader />
-      {data?.feedback.length > 0 ? (
+      {data?.feedback?.length > 0 ? (
         <FeedbackTable feedback={data.feedback} />
       ) : (
         <FeedbackEmptyState />

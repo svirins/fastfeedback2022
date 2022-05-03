@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
     revalidate: 5
   };
 }
-
+// TODO: bump firebase and react-hook-form to latest versions
 const Home = ({ allFeedback, site }) => {
   const { user } = useAuth();
 
